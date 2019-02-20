@@ -17,5 +17,13 @@ pipeline {
 		sh 'mv /var/lib/jenkins/workspace/2/java-sample-app/target/*.war /var/lib/jenkins/workspace/1/'
 	    }
           }
+	   stage ('docker') {
+            steps {
+                sh 'cd /var/lib/jenkins/workspace/1/'
+		sh 'docker build -f Dockerfile.txt -t pp:latest .'
+		sh 'docker tag pp praveeenkumarm373/pp:latest'
+		sh 'docker push praveeenkumarm373/pp:latest'
+	    }
+          } 
     }
 }
