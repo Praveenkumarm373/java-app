@@ -22,6 +22,7 @@ pipeline {
             steps {
 		sh 'docker build -f Dockerfile.txt -t pp:latest .'
 		sh 'docker tag pp praveeenkumarm373/pp:latest'
+		sh 'usermod -a -G docker jenkins'
 		sh 'docker push praveeenkumarm373/pp:latest'
 	    }
           } 
