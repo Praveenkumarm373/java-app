@@ -14,8 +14,8 @@ pipeline {
     stage ('copy') {
             steps {
 		sh 'rm -rf /var/lib/jenkins/workspace/2/*.war'
-		sh 'mv /var/lib/jenkins/workspace/2/java-sample-app/target/*.war /var/lib/jenkins/workspace/2/'
-		sh 'mv /var/lib/jenkins/workspace/1/* /var/lib/jenkins/workspace/2/'
+		sh 'cp /var/lib/jenkins/workspace/2/java-sample-app/target/*.war /var/lib/jenkins/workspace/2/'
+		sh 'cp /var/lib/jenkins/workspace/1/* /var/lib/jenkins/workspace/2/'
 	    }
           }
 	   stage ('docker') {
