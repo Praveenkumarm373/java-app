@@ -21,7 +21,6 @@ pipeline {
 	   stage ('docker') {
             steps {
 		sh 'docker build -f Dockerfile.txt -t pp:latest .'
-		sh 'docker tag pp praveeenkumarm373/pp:latest'
 		sh 'docker push praveeenkumarm373/pp:latest'
 	    }
           } 
